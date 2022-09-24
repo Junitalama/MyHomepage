@@ -3,8 +3,29 @@
   Reading tests will always help you discover your requirements.
   You can make this window bigger. 
    ===================
-*/
+*/var images;
 
+
+images = ['https://nuxx.net/gallery/d/16992-2/domo1.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUxa_vvB2i-exA278A1B17OFeBhVAg6xaIOw&usqp=CAU', 'http://www.bravofurniture.net/images/catalog_icons/27.jpg'];
+
+let element_pics = document.getElementById('pics');
+images.push(images[0]);
+element_pics.setAttribute("src", images.shift());
+
+
+document.getElementById('previous').addEventListener('click', (event) => {
+  let element_pics2 = document.getElementById('pics');
+  images.unshift(images.slice(-1)[0]);
+  element_pics2.setAttribute("src", images.pop());
+
+});
+
+document.getElementById('next').addEventListener('click', (event) => {
+  let element_pics3 = document.getElementById('pics');
+  images.push(images[0]);
+  element_pics3.setAttribute("src", images.shift());
+
+});
 const {
   core: { test, expect, run },
   prettify
